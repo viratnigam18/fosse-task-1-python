@@ -3,134 +3,273 @@
 {% block title %}Coordinator Registration - FOSSEE Workshops{% endblock %}
 
 {% block content %}
-<div class="registration-page">
-  <div class="registration-container">
-    <div class="registration-card">
-      <!-- Logo -->
-      <div class="logo-container">
-        <img src="https://fossee.in/sites/all/themes/software_responsive_theme/img/logo.png" 
-             alt="FOSSEE Logo" 
-             class="fossee-logo">
-      </div>
-
-      <!-- Registration Form -->
-      <form method="post" class="registration-form">
-        {% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinator Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
         
-        {% if form.errors %}
-          <div class="alert alert-error">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path fill-rule="evenodd" d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm0-12a1 1 0 0 0-1 1v4a1 1 0 1 0 2 0V5a1 1 0 0 0-1-1zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg>
-            Please correct the errors below.
-          </div>
-        {% endif %}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
         
-        <!-- Personal Information -->
-        <fieldset class="form-section">
-          <legend class="section-title">Personal Information</legend>
-          
-          <div class="form-row">
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .form-label {
+            width: 250px;
+            padding: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        
+        .form-input[type="text"],
+        .form-input[type="email"],
+        .form-input[type="password"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .form-input select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .form-note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .required {
+            color: red;
+        }
+        
+        .button {
+            background-color: #e0f7ff;
+            border: 1px solid #0096c7;
+            color: #0096c7;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .button:hover {
+            background-color: #bbdefb;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://fossee.in/sites/all/themes/software_responsive_theme/img/logo.png" alt="FOSSEE Logo">
+        </div>
+        
+        <h1>Coordinator Registration Form</h1>
+        
+        <form action="#" method="post">
             <div class="form-group">
-              <label for="id_username" class="form-label">Username*</label>
-              {{ form.username }}
-              <small class="form-text">Letters, digits, period and underscore only.</small>
+                <div class="form-label">Username:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="username" placeholder="Letters, digits, period and underscore only." required>
+                </div>
             </div>
             
             <div class="form-group">
-              <label for="id_email" class="form-label">Email*</label>
-              {{ form.email }}
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="id_password1" class="form-label">Password*</label>
-              {{ form.password1 }}
-              <small class="form-text">{{ form.password1.help_text }}</small>
+                <div class="form-label">Email:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="email" name="email" required>
+                </div>
             </div>
             
             <div class="form-group">
-              <label for="id_password2" class="form-label">Confirm Password*</label>
-              {{ form.password2 }}
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="id_title" class="form-label">Title*</label>
-              {{ form.title }}
+                <div class="form-label">Password:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="password" name="password" required>
+                </div>
             </div>
             
             <div class="form-group">
-              <label for="id_first_name" class="form-label">First Name*</label>
-              {{ form.first_name }}
+                <div class="form-label">Confirm password:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="password" name="confirm_password" required>
+                </div>
             </div>
             
             <div class="form-group">
-              <label for="id_last_name" class="form-label">Last Name*</label>
-              {{ form.last_name }}
-            </div>
-          </div>
-        </fieldset>
-        
-        <!-- Contact Information -->
-        <fieldset class="form-section">
-          <legend class="section-title">Contact Information</legend>
-          
-          <div class="form-group">
-            <label for="id_phone_number" class="form-label">Phone Number*</label>
-            {{ form.phone_number }}
-          </div>
-        </fieldset>
-        
-        <!-- Institution Information -->
-        <fieldset class="form-section">
-          <legend class="section-title">Institution Information</legend>
-          
-          <div class="form-group">
-            <label for="id_institute" class="form-label">Institute*</label>
-            {{ form.institute }}
-            <small class="form-text">Please write full name of your Institute/Organization</small>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="id_department" class="form-label">Department*</label>
-              {{ form.department }}
-              <small class="form-text">Department you work/study</small>
+                <div class="form-label">Title:<span class="required">*</span></div>
+                <div class="form-input">
+                    <select name="title" required>
+                        <option value="Prof">Prof.</option>
+                        <option value="Dr">Dr.</option>
+                        <option value="Mr">Mr.</option>
+                        <option value="Ms">Ms.</option>
+                        <option value="Mrs">Mrs.</option>
+                    </select>
+                </div>
             </div>
             
             <div class="form-group">
-              <label for="id_location" class="form-label">Location*</label>
-              {{ form.location }}
-              <small class="form-text">Place/City</small>
+                <div class="form-label">First name:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="first_name" required>
+                </div>
             </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="id_state" class="form-label">State*</label>
-            {{ form.state }}
-          </div>
-        </fieldset>
-        
-        <!-- Additional Information -->
-        <fieldset class="form-section">
-          <legend class="section-title">Additional Information</legend>
-          
-          <div class="form-group">
-            <label for="id_how_did_you_hear_about_us" class="form-label">How did you hear about us?*</label>
-            {{ form.how_did_you_hear_about_us }}
-          </div>
-        </fieldset>
-        
-        <button type="submit" class="btn-primary">Register</button>
-      </form>
-      
-      <div class="login-link">
-        <p>Already have an account? <a href="{% url 'workshop_app:login' %}" class="text-link">Sign in</a></p>
-      </div>
+            
+            <div class="form-group">
+                <div class="form-label">Last name:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="last_name" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">Phone number:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="phone_number" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">Institute:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="institute" placeholder="Please write full name of your Institute/Organization" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">Department:<span class="required">*</span></div>
+                <div class="form-input">
+                    <select name="department" required>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">Location:<span class="required">*</span></div>
+                <div class="form-input">
+                    <input type="text" name="location" placeholder="Place/City" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">State:<span class="required">*</span></div>
+                <div class="form-input">
+                    <select name="state" required>
+                        <option value="">---------</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="form-label">How did you hear about us:<span class="required">*</span></div>
+                <div class="form-input">
+                    <select name="how_hear" required>
+                        <option value="FOSSEE website">FOSSEE website</option>
+                        <option value="Social media">Social media</option>
+                        <option value="Colleague">Colleague</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button type="submit" class="button">Register</button>
+            </div>
+        </form>
     </div>
-  </div>
-</div>
+    
+    
+</body>
+</html>
 {% endblock %}
