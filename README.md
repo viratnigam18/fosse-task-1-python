@@ -17,7 +17,7 @@ Key improvements include:
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/fossee-workshop-booking.git
+    git clone https://github.com/viratnigam18/fosse-task-1-python/tree/main
     ```
 2.  Navigate to the project directory:
     ```bash
@@ -75,4 +75,5 @@ Responsiveness was achieved using:
 
 ### After
 <img width="695" height="753" alt="image" src="https://github.com/user-attachments/assets/f165b48c-ed0a-4341-b251-a1e02fc98f36" />
+
 
