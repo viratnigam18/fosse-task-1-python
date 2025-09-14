@@ -6,6 +6,8 @@ This repository contains the improved UI/UX for the FOSSEE Workshop Booking webs
 
 This project enhances the user interface and user experience of the original FOSSEE Workshop Booking application. The goal was to create a more modern, responsive, and user-friendly design, particularly optimized for mobile users, while maintaining the core functionality.
 
+Demo Link - https://www.youtube.com/watch?v=ujxo1pjiXB4
+
 Key improvements include:
 *   Modern, clean visual design using a consistent color scheme and typography.
 *   Responsive layouts that adapt well to different screen sizes (mobile-first approach).
@@ -75,5 +77,6 @@ Responsiveness was achieved using:
 
 ### After
 <img width="695" height="753" alt="image" src="https://github.com/user-attachments/assets/f165b48c-ed0a-4341-b251-a1e02fc98f36" />
+
 
 
